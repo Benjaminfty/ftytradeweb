@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useI18n } from "@/lib/i18n";
+import { trackLead } from "@/components/Analytics";
 
 const input =
   "w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white " +
@@ -41,6 +42,7 @@ export default function Waitlist() {
         setErr(code === "too_many" ? t("wl_err_many") : code === "no_keys" ? t("wl_err_nokeys") : code === "email" ? t("wl_err_email") : t("wl_err_server"));
         return;
       }
+      if (!j.existing) trackLead(lang);
       setDone({ key: j.key, existing: !!j.existing });
     } catch {
       setErr(t("wl_err_server"));

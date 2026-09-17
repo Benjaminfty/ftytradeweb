@@ -3,6 +3,7 @@ import { Archivo } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
 import { I18nProvider, type Lang } from "@/lib/i18n";
+import Analytics from "@/components/Analytics";
 
 const archivo = Archivo({ subsets: ["latin"], display: "swap" });
 
@@ -78,6 +79,7 @@ export default async function RootLayout({
   return (
     <html lang={l} className={archivo.className}>
       <body className="bg-black text-white antialiased">
+        <Analytics />
         <I18nProvider lang={l}>{children}</I18nProvider>
       </body>
     </html>
