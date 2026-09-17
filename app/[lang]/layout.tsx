@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import "../globals.css";
 import { I18nProvider, type Lang } from "@/lib/i18n";
 import Analytics from "@/components/Analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 
 const archivo = Archivo({ subsets: ["latin"], display: "swap" });
 
@@ -80,6 +81,7 @@ export default async function RootLayout({
     <html lang={l} className={archivo.className}>
       <body className="bg-black text-white antialiased">
         <Analytics />
+        <VercelAnalytics />
         <I18nProvider lang={l}>{children}</I18nProvider>
       </body>
     </html>
