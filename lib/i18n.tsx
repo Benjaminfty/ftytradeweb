@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext } from "react";
+import { useRouter } from "next/navigation";
 
 export type Lang = "en" | "es";
 
@@ -57,8 +58,8 @@ const DICT = {
     q7: "Where do I enter my Reward Key and how does it work?",
     a7: "Follow Ftytrade on social media and join our Discord. When we launch, create your free Ftytrade account. In your dashboard overview you'll find the Reward Box: enter your key, hit Claim, and the box opens with an animation revealing your reward. Everything is applied automatically — if you win a 50K account, it's active in seconds, no support ticket needed.",
     // footer
-    f_title: "Trading and Funding. Connected.",
-    f_p: "Ftytrade Futures turns your trading skill into funded capital. Join the waitlist, claim your Reward Key and be first in when the doors open.",
+    f_title: "Trade big. Risk nothing of your own.",
+    f_p: "Ftytrade Futures gives you access to funded futures accounts up to 100K. Prove your consistency, trade our capital and get paid on your profits. Join the waitlist and reserve your Reward Key before we open.",
     f_join: "Join the waitlist", f_claim: "Claim my key",
     f_programs: "Programs", f_company: "Company", f_resources: "Resources",
     f_about: "About us", f_support: "Support", f_faq: "FAQ",
@@ -113,8 +114,8 @@ const DICT = {
     a6: "Muy pronto. Estamos cerrando los últimos detalles de tecnología, partnerships y constitución de la empresa. Únete al Discord de Ftytrade para enterarte de todo el primero.",
     q7: "¿Dónde introduzco mi Reward Key y cómo funciona?",
     a7: "Sigue a Ftytrade en redes y únete a nuestro Discord. Cuando lancemos, crea tu cuenta gratuita en Ftytrade. En el resumen de tu dashboard verás el Reward Box: introduce tu clave, pulsa Claim y la caja se abre con una animación que revela tu premio. Todo se aplica automáticamente: si ganas una cuenta de 50K, estará activa en segundos, sin hablar con soporte.",
-    f_title: "Trading y financiación. Conectados.",
-    f_p: "Ftytrade Futures convierte tu habilidad como trader en capital fondeado. Únete a la lista, consigue tu Reward Key y entra el primero cuando se abran las puertas.",
+    f_title: "Opera en grande. Sin arriesgar tu dinero.",
+    f_p: "Ftytrade Futures te da acceso a cuentas fondeadas de futuros de hasta 100K. Demuestra tu consistencia, opera con nuestro capital y cobra tus ganancias. Únete a la lista y reserva tu Reward Key antes de que abramos.",
     f_join: "Únete a la lista", f_claim: "Quiero mi clave",
     f_programs: "Programas", f_company: "Empresa", f_resources: "Recursos",
     f_about: "Sobre nosotros", f_support: "Soporte", f_faq: "Preguntas frecuentes",
@@ -130,19 +131,11 @@ const Ctx = createContext<{ lang: Lang; setLang: (l: Lang) => void; t: (k: Key) 
   lang: "en", setLang: () => {}, t: (k) => DICT.en[k],
 });
 
-export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en");
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("fty_lang") as Lang | null;
-      if (saved === "en" || saved === "es") setLangState(saved);
-      else if (navigator.language.toLowerCase().startsWith("es")) setLangState("es");
-    } catch {}
-  }, []);
-  const setLang = (l: Lang) => {
-    setLangState(l);
-    try { localStorage.setItem("fty_lang", l); } catch {}
-  };
+export const langPath = (l: Lang) => (l === "es" ? "/es" : "/");
+
+export function I18nProvider({ lang, children }: { lang: Lang; children: React.ReactNode }) {
+  const router = useRouter();
+  const setLang = (l: Lang) => router.push(langPath(l));
   const t = (k: Key) => DICT[lang][k] ?? DICT.en[k];
   return <Ctx.Provider value={{ lang, setLang, t }}>{children}</Ctx.Provider>;
 }

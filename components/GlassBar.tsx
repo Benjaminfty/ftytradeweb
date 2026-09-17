@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useI18n } from "@/lib/i18n";
+import Link from "next/link";
+import { useI18n, langPath } from "@/lib/i18n";
 
 export default function GlassBar() {
-  const { lang, setLang } = useI18n();
+  const { lang } = useI18n();
   return (
     <div
       className="fixed left-1/2 top-4 z-50 flex w-[min(1100px,calc(100%-32px))]
@@ -18,20 +19,22 @@ export default function GlassBar() {
         className="pointer-events-none absolute inset-x-6 top-0 h-px
                    bg-gradient-to-r from-transparent via-white/60 to-transparent"
       />
-      <Image src="/logo.png" alt="Ftytrade" width={128} height={30} priority className="h-[30px] w-auto" />
+      <Link href={langPath(lang)} aria-label="Ftytrade">
+        <Image src="/logo.png" alt="Ftytrade" width={128} height={30} priority className="h-[30px] w-auto" />
+      </Link>
 
-      {/* selector de idioma */}
       <div className="absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-1 rounded-full border border-white/15 bg-black/30 p-0.5 text-[11px] font-semibold">
         {(["en", "es"] as const).map((l) => (
-          <button
+          <Link
             key={l}
-            onClick={() => setLang(l)}
+            href={langPath(l)}
+            hrefLang={l}
             className={`rounded-full px-2.5 py-1 uppercase transition ${
               lang === l ? "bg-white text-black" : "text-white/60 hover:text-white"
             }`}
           >
             {l}
-          </button>
+          </Link>
         ))}
       </div>
     </div>
