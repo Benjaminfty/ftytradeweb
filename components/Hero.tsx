@@ -23,10 +23,10 @@ export default function Hero() {
         {t("hero_sub_a")}<span className="font-semibold text-white">{t("hero_sub_b1")}</span>{t("hero_sub_c")}<span className="font-semibold text-white">{t("hero_sub_b2")}</span>{t("hero_sub_d")}
       </p>
 
-      <ul className="mx-auto mt-6 flex w-fit flex-col items-start gap-3 text-left">
+      <ul className="mx-auto mt-8 flex w-fit flex-col items-start gap-5 text-left">
         {(["hero_p1", "hero_p2", "hero_p3"] as const).map((k) => (
-          <li key={k} className="flex items-center gap-3 text-[15px] text-white/85 sm:text-base">
-            <Image src="/crownicon.png" alt="" width={28} height={28} className="h-7 w-7 shrink-0" />
+          <li key={k} className="flex items-center gap-4 text-lg font-medium text-white sm:text-xl">
+            <Image src="/crownicon.png" alt="" width={44} height={44} className="h-11 w-11 shrink-0" />
             {t(k)}
           </li>
         ))}
