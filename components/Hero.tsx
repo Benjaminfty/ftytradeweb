@@ -6,9 +6,13 @@ import { useI18n } from "@/lib/i18n";
 export default function Hero() {
   const { t } = useI18n();
   return (
-    <section className="mx-auto flex w-full max-w-6xl flex-col items-start px-6 pt-[16vh] text-left sm:px-10">
+    <section className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 pt-[16vh] text-center sm:px-10">
       {/* Badge */}
-      <span className="mb-6 inline-flex items-center rounded-full border border-[#FF9D00]/40 bg-[#FF9D00]/10 px-4 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-[#FFB84D]">
+      <span className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-[12px] font-medium tracking-wide text-white/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-sm">
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF9D00] opacity-60" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF9D00]" />
+        </span>
         {t("hero_badge")}
       </span>
 
@@ -25,7 +29,7 @@ export default function Hero() {
       </p>
 
       {/* Benefits */}
-      <ul className="mt-7 flex flex-col gap-3.5">
+      <ul className="mt-7 flex w-fit flex-col items-start gap-3.5 text-left">
         {(["hero_p1", "hero_p2", "hero_p3"] as const).map((k) => (
           <li key={k} className="flex items-center gap-3.5 text-[17px] font-medium text-white/90">
             <Image src="/bolticon.png" alt="" width={32} height={32} className="h-8 w-8 shrink-0 rounded-lg" />
