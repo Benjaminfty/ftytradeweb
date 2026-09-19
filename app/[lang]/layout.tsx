@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Archivo } from "next/font/google";
+import { Inter, Inter_Tight } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
 import { I18nProvider, type Lang } from "@/lib/i18n";
 import Analytics from "@/components/Analytics";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 
-const archivo = Archivo({ subsets: ["latin"], display: "swap" });
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
+const interTight = Inter_Tight({ subsets: ["latin"], weight: ["500", "600", "700"], display: "swap", variable: "--font-display" });
 
 const SITE = "https://ftytrade.com";
 const LANGS: Lang[] = ["en", "es"];
@@ -78,7 +79,7 @@ export default async function RootLayout({
   if (!LANGS.includes(lang as Lang)) notFound();
   const l = lang as Lang;
   return (
-    <html lang={l} className={archivo.className}>
+    <html lang={l} className={`${inter.className} ${inter.variable} ${interTight.variable}`}>
       <body className="bg-black text-white antialiased">
         <Analytics />
         <VercelAnalytics />

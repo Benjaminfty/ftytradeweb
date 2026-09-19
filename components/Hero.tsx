@@ -21,14 +21,14 @@ export default function Hero() {
       </span>
 
       {/* Title */}
-      <h1 className="max-w-4xl text-[40px] font-semibold leading-[1.08] tracking-tight text-white sm:text-6xl md:text-[64px]">
+      <h1 className="max-w-4xl font-[family-name:var(--font-display)] text-[44px] font-semibold leading-[0.98] tracking-[-0.02em] text-white sm:text-6xl md:text-[72px]">
         {t("hero_turn")} {t("hero_trading")}
         <br />
         <span className="text-[#FF9D00]">{t("hero_into")}</span>
       </h1>
 
       {/* Subtitle */}
-      <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-white/75 sm:text-lg">
+      <p className="mt-5 max-w-xl text-[17px] leading-relaxed tracking-[-0.01em] text-white/75 sm:text-lg">
         {t("hero_sub_a")}<span className="font-semibold text-white">{t("hero_sub_b1")}</span>{t("hero_sub_c")}<span className="font-semibold text-white">{t("hero_sub_b2")}</span>{t("hero_sub_d")}
       </p>
 
