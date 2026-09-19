@@ -9,7 +9,7 @@ const DICT = {
   en: {
     // hero
     hero_turn: "Capital for", hero_trading: "futures traders", hero_into: "ready for the next level",
-    hero_sub_a: "Secure your place on the FTYTRADE waitlist and receive a ", hero_sub_b1: "Reward Key", hero_sub_c: " to unlock an ", hero_sub_b2: "exclusive launch reward", hero_sub_d: ".",
+    hero_sub_a: "Secure your place on the FTYTRADE waitlist and receive a ", hero_sub_b1: "Reward Key", hero_sub_c: " to unlock an ", hero_sub_b2: "exclusive launch reward", hero_sub_d: ".", hero_p1: "Priority access before the public launch", hero_p2: "Exclusive Reward Key with premium rewards", hero_p3: "Early access to our pre-launch Discord community",
     hero_cta: "Try Your Reward Box Free",
     partners: "POWERED BY OUR PARTNERS",
     // steps
@@ -69,7 +69,7 @@ const DICT = {
   },
   es: {
     hero_turn: "Capital para", hero_trading: "traders de futuros", hero_into: "preparados para el siguiente nivel",
-    hero_sub_a: "Asegura tu plaza en la lista de espera de FTYTRADE y recibe una ", hero_sub_b1: "Reward Key", hero_sub_c: " para desbloquear una ", hero_sub_b2: "recompensa exclusiva de lanzamiento", hero_sub_d: ".",
+    hero_sub_a: "Asegura tu plaza en la lista de espera de FTYTRADE y recibe una ", hero_sub_b1: "Reward Key", hero_sub_c: " para desbloquear una ", hero_sub_b2: "recompensa exclusiva de lanzamiento", hero_sub_d: ".", hero_p1: "Acceso prioritario antes del lanzamiento público", hero_p2: "Reward Key exclusiva con recompensas premium", hero_p3: "Acceso anticipado a nuestra comunidad de Discord",
     hero_cta: "Prueba tu Reward Box gratis",
     partners: "CON EL RESPALDO DE NUESTROS PARTNERS",
     steps_title: "Tres pasos hasta tu Reward Box",
