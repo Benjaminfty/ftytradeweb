@@ -23,7 +23,9 @@ export default function Hero() {
         />{" "}
         {t("hero_trading")}
         <br />
-        {t("hero_into")}
+        <span className="bg-gradient-to-b from-[#FFB84D] via-[#FF9D00] to-[#FF9D00]/70 bg-clip-text text-transparent">
+          {t("hero_into")}
+        </span>
       </h1>
 
       <p className="mt-5 max-w-md text-[13px] leading-relaxed text-white/45 sm:text-sm">

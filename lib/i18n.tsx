@@ -8,7 +8,7 @@ export type Lang = "en" | "es";
 const DICT = {
   en: {
     // hero
-    hero_turn: "Turn", hero_trading: "Trading", hero_into: "Into Funding",
+    hero_turn: "Capital for", hero_trading: "futures traders", hero_into: "ready for the next level",
     hero_sub: "Join the waitlist and claim one of 1,000 Reward Keys — every box hides a funded account, a discount or a free reset.",
     hero_cta: "Try Your Reward Box Free",
     partners: "POWERED BY OUR PARTNERS",
@@ -68,7 +68,7 @@ const DICT = {
     f_legal: "Ftytrade is an educational platform offering skill-based trading simulations. All trading activity on Ftytrade is simulated. No client funds are held and no investment advice is provided. Trading futures involves substantial risk and is not suitable for every individual. Ftytrade is not a broker, FCM or investment adviser.",
   },
   es: {
-    hero_turn: "Convierte", hero_trading: "tu Trading", hero_into: "en Financiación",
+    hero_turn: "Capital para", hero_trading: "traders de futuros", hero_into: "preparados para el siguiente nivel",
     hero_sub: "Únete a la lista de espera y consigue una de las 1.000 Reward Keys: cada caja esconde una cuenta fondeada, un descuento o un reset gratis.",
     hero_cta: "Prueba tu Reward Box gratis",
     partners: "CON EL RESPALDO DE NUESTROS PARTNERS",
