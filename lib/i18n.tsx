@@ -9,7 +9,7 @@ const DICT = {
   en: {
     // hero
     hero_turn: "Capital for", hero_trading: "futures traders", hero_into: "ready for the next level",
-    hero_sub: "Join the waitlist and claim one of 1,000 Reward Keys — every box hides a funded account, a discount or a free reset.",
+    hero_sub_a: "Secure your place on the FTYTRADE waitlist and receive a ", hero_sub_b1: "Reward Key", hero_sub_c: " to unlock an ", hero_sub_b2: "exclusive launch reward", hero_sub_d: ".",
     hero_cta: "Try Your Reward Box Free",
     partners: "POWERED BY OUR PARTNERS",
     // steps
@@ -69,7 +69,7 @@ const DICT = {
   },
   es: {
     hero_turn: "Capital para", hero_trading: "traders de futuros", hero_into: "preparados para el siguiente nivel",
-    hero_sub: "Únete a la lista de espera y consigue una de las 1.000 Reward Keys: cada caja esconde una cuenta fondeada, un descuento o un reset gratis.",
+    hero_sub_a: "Asegura tu plaza en la lista de espera de FTYTRADE y recibe una ", hero_sub_b1: "Reward Key", hero_sub_c: " para desbloquear una ", hero_sub_b2: "recompensa exclusiva de lanzamiento", hero_sub_d: ".",
     hero_cta: "Prueba tu Reward Box gratis",
     partners: "CON EL RESPALDO DE NUESTROS PARTNERS",
     steps_title: "Tres pasos hasta tu Reward Box",

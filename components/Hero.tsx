@@ -19,8 +19,8 @@ export default function Hero() {
         </span>
       </h1>
 
-      <p className="mt-5 max-w-md text-[13px] leading-relaxed text-white/45 sm:text-sm">
-        {t("hero_sub")}
+      <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
+        {t("hero_sub_a")}<span className="font-semibold text-white">{t("hero_sub_b1")}</span>{t("hero_sub_c")}<span className="font-semibold text-white">{t("hero_sub_b2")}</span>{t("hero_sub_d")}
       </p>
 
       <a
