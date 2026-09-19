@@ -8,11 +8,7 @@ export default function Hero() {
   return (
     <section className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 pt-[16vh] text-center sm:px-10">
       {/* Badge */}
-      <span className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-[12px] font-medium tracking-wide text-white/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-sm">
-        <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF9D00] opacity-60" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF9D00]" />
-        </span>
+      <span className="mb-6 inline-flex items-center rounded-full border border-[#FF9D00]/60 bg-[#0B0B0D] px-5 py-2 font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-white/90 shadow-[0_0_14px_rgba(255,157,0,0.35),inset_0_0_10px_rgba(255,157,0,0.15)]">
         {t("hero_badge")}
       </span>
 
