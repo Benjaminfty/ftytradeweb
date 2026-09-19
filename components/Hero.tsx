@@ -8,22 +8,13 @@ export default function Hero() {
   return (
     <section className="flex flex-col items-center px-6 pt-[24vh] text-center">
       <h1
-        className="bg-gradient-to-b from-white via-white to-white/40 bg-clip-text
-                   text-6xl font-bold leading-[1.05] tracking-tight text-transparent
+        className="text-white
+                   text-6xl font-bold leading-[1.05] tracking-tight
                    sm:text-7xl md:text-8xl"
       >
-        {t("hero_turn")}{" "}
-        <Image
-          src="/heroicon.png"
-          alt=""
-          width={210}
-          height={190}
-          priority
-          className="mx-2 inline-block h-[0.92em] w-auto translate-y-[-0.05em] align-middle"
-        />{" "}
-        {t("hero_trading")}
+        {t("hero_turn")} {t("hero_trading")}
         <br />
-        <span className="bg-gradient-to-b from-[#FFB84D] via-[#FF9D00] to-[#FF9D00]/70 bg-clip-text text-transparent">
+        <span className="text-[#FF9D00]">
           {t("hero_into")}
         </span>
       </h1>
