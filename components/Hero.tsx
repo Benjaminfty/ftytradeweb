@@ -33,13 +33,13 @@ export default function Hero() {
         </p>
 
         {/* Benefits — caja de icono 36px con borde, texto 18px */}
-        <ul className={`${lang === "en" ? "mt-12" : "mt-7"} flex w-fit flex-col gap-3 text-left`}>
+        <ul className={`${lang === "en" ? "mt-20" : "mt-7"} flex w-fit flex-col gap-3 text-left`}>
           {(["hero_p1", "hero_p2", "hero_p3"] as const).map((k) => (
             <li key={k} className="flex items-center gap-3.5">
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#FF9D00]/35 bg-[#0E0E11]">
                 <Image src="/bolticon.png" alt="" width={36} height={36} className="h-9 w-9 rounded-lg" />
               </span>
-              <span className="text-[17px] font-medium text-white sm:text-[18px]">{t(k)}</span>
+              <span className="text-[17px] font-medium text-white/70 sm:text-[18px]">{t(k)}</span>
             </li>
           ))}
         </ul>
