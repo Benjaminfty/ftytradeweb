@@ -6,11 +6,18 @@ import { useI18n } from "@/lib/i18n";
 export default function Hero() {
   const { t } = useI18n();
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 pb-16 pt-[11vh] sm:px-10">
-      <div className="max-w-3xl">
+    <section className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 pb-16 pt-[11vh] text-center sm:px-10">
+      <div className="flex max-w-3xl flex-col items-center">
         {/* Badge — igual que referencia: pill oscuro, borde fino, mono */}
-        <span className="inline-flex items-center rounded-lg border border-[#FF9D00]/45 bg-[#0E0E11] px-3.5 py-2 font-mono text-[12px] font-medium uppercase tracking-[0.08em] text-white shadow-[0_0_0_1px_rgba(255,157,0,0.08),0_0_18px_rgba(255,157,0,0.18)]">
-          {t("hero_badge")}
+        <span className="relative inline-flex overflow-hidden rounded-full p-px">
+          <span
+            aria-hidden
+            className="absolute inset-[-150%] animate-[spin_3s_linear_infinite]"
+            style={{ background: "conic-gradient(from 0deg, transparent 0deg, transparent 250deg, rgba(255,157,0,0.25) 300deg, #FF9D00 335deg, #FFD08A 350deg, transparent 360deg)" }}
+          />
+          <span className="relative inline-flex items-center rounded-full border border-[#FF9D00]/20 bg-[#0B0B0D] px-5 py-2 font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-white/90">
+            {t("hero_badge")}
+          </span>
         </span>
 
         {/* Title — 2 líneas, 60px máx */}
@@ -26,7 +33,7 @@ export default function Hero() {
         </p>
 
         {/* Benefits — caja de icono 36px con borde, texto 18px */}
-        <ul className="mt-7 flex flex-col gap-3">
+        <ul className="mt-7 flex w-fit flex-col gap-3 text-left">
           {(["hero_p1", "hero_p2", "hero_p3"] as const).map((k) => (
             <li key={k} className="flex items-center gap-3.5">
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#FF9D00]/35 bg-[#0E0E11]">
