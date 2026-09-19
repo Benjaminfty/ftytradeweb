@@ -8,8 +8,16 @@ export default function Hero() {
   return (
     <section className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 pt-[16vh] text-center sm:px-10">
       {/* Badge */}
-      <span className="mb-6 inline-flex items-center rounded-full border border-[#FF9D00]/60 bg-[#0B0B0D] px-5 py-2 font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-white/90 shadow-[0_0_14px_rgba(255,157,0,0.35),inset_0_0_10px_rgba(255,157,0,0.15)]">
-        {t("hero_badge")}
+      <span className="relative mb-6 inline-flex overflow-hidden rounded-full p-px">
+        {/* luz que recorre el borde */}
+        <span
+          aria-hidden
+          className="absolute inset-[-150%] animate-[spin_3s_linear_infinite]"
+          style={{ background: "conic-gradient(from 0deg, transparent 0deg, transparent 250deg, rgba(255,157,0,0.25) 300deg, #FF9D00 335deg, #FFD08A 350deg, transparent 360deg)" }}
+        />
+        <span className="relative inline-flex items-center rounded-full border border-[#FF9D00]/20 bg-[#0B0B0D] px-5 py-2 font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-white/90">
+          {t("hero_badge")}
+        </span>
       </span>
 
       {/* Title */}
