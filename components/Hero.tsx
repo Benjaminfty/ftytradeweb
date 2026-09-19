@@ -45,7 +45,7 @@ export default function Hero() {
       {/* CTA */}
       <a
         href="#waitlist"
-        className="mt-8 rounded-full bg-gradient-to-b from-[#FFB84D] to-[#FF9D00]
+        className="mt-12 rounded-full bg-gradient-to-b from-[#FFB84D] to-[#FF9D00]
                    px-7 py-3 text-sm font-semibold text-black
                    shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]
                    transition hover:brightness-110"
