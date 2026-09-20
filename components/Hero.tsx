@@ -6,7 +6,7 @@ import { useI18n } from "@/lib/i18n";
 export default function Hero() {
   const { t, lang } = useI18n();
   return (
-    <section className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 pb-16 pt-[11vh] text-center sm:px-10">
+    <section className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 pb-28 pt-[10vh] text-center sm:px-10">
       <div className="flex max-w-3xl flex-col items-center">
         {/* Badge — igual que referencia: pill oscuro, borde fino, mono */}
         <span className="relative inline-flex overflow-hidden rounded-full p-px">
@@ -33,7 +33,7 @@ export default function Hero() {
         </p>
 
         {/* Benefits — caja de icono 36px con borde, texto 18px */}
-        <ul className={`${lang === "en" ? "mt-20" : "mt-7"} flex w-fit flex-col gap-3 text-left`}>
+        <ul className={`${lang === "en" ? "mt-8" : "mt-7"} flex w-fit flex-col gap-3 text-left`}>
           {(["hero_p1", "hero_p2", "hero_p3"] as const).map((k) => (
             <li key={k} className="flex items-center gap-3.5">
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#FF9D00]/35 bg-[#0E0E11]">
