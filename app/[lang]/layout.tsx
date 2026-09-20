@@ -80,7 +80,7 @@ export default async function RootLayout({
   const l = lang as Lang;
   return (
     <html lang={l} className={`${inter.className} ${inter.variable} ${interTight.variable}`}>
-      <body className="bg-black text-white antialiased">
+      <body className="overflow-x-hidden bg-black text-white antialiased">
         <Analytics />
         <VercelAnalytics />
         <I18nProvider lang={l}>{children}</I18nProvider>

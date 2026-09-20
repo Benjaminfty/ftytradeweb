@@ -23,7 +23,7 @@ export default function GlassBar() {
         href="https://discord.gg/kDuDqF6Pd"
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute left-4 top-1/2 flex -translate-y-1/2 items-center gap-2 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-[13px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] transition hover:border-white/30 hover:bg-black/60"
+        className="absolute left-4 top-1/2 hidden sm:flex -translate-y-1/2 items-center gap-2 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-[13px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] transition hover:border-white/30 hover:bg-black/60"
       >
         Join Discord
         <Image src="/bolticon.png" alt="" width={18} height={18} className="h-[18px] w-[18px] rounded" />

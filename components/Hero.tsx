@@ -21,7 +21,7 @@ export default function Hero() {
         </span>
 
         {/* Title — 2 líneas, 60px máx */}
-        <h1 className="mt-6 font-[family-name:var(--font-display)] text-[38px] font-semibold leading-[1.06] tracking-[-0.02em] text-white sm:text-[52px] md:text-[60px]">
+        <h1 className="mt-6 font-[family-name:var(--font-display)] text-[28px] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[46px] sm:leading-[1.06] md:text-[60px]">
           {t("hero_turn")} {t("hero_trading")}
           <br />
           <span className="text-[#FF9D00]">{t("hero_into")}</span>
@@ -33,7 +33,7 @@ export default function Hero() {
         </p>
 
         {/* Benefits — caja de icono 36px con borde, texto 18px */}
-        <ul className={`${lang === "en" ? "mt-8" : "mt-7"} flex w-fit flex-col gap-3 text-left`}>
+        <ul className={`${lang === "en" ? "mt-8" : "mt-7"} mx-auto flex w-full max-w-md flex-col gap-3 text-left`}>
           {(["hero_p1", "hero_p2", "hero_p3"] as const).map((k) => (
             <li key={k} className="flex items-center gap-3.5">
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#FF9D00]/35 bg-[#0E0E11]">
