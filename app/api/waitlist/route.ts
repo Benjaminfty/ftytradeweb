@@ -13,6 +13,15 @@ function limited(ip: string) {
   return h.n > 8;
 }
 
+function emailBase(e: string) {
+  const at = e.indexOf("@");
+  if (at <= 0) return e;
+  let local = e.slice(0, at).split("+")[0];
+  const domain = e.slice(at + 1);
+  if (domain === "gmail.com" || domain === "googlemail.com") local = local.replace(/\./g, "");
+  return `${local}@${domain}`;
+}
+
 function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
     auth: { persistSession: false },
@@ -66,17 +75,40 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: true, key: existing.code, existing: true });
     }
 
-    let key: { id: string; code: string; note: string | null } | null = null;
+    // ---- Protocolo anti-duplicados: email base + nombre completo + IP ----
+    const base = emailBase(email);
+    const normName = `${first} ${last}`.toLowerCase().replace(/\s+/g, " ").trim();
+    const { data: allRows } = await sb
+      .from("waitlist_signups")
+      .select("email, first_name, last_name, ip")
+      .limit(5000);
+    let ipCount = 0;
+    for (const r of allRows || []) {
+      const rEmail = String(r.email || "").toLowerCase();
+      if (rEmail !== email && emailBase(rEmail) === base) {
+        return NextResponse.json({ ok: false, error: "already" }, { status: 409 });
+      }
+      const rName = `${r.first_name || ""} ${r.last_name || ""}`.toLowerCase().replace(/\s+/g, " ").trim();
+      if (rName && rName === normName) {
+        return NextResponse.json({ ok: false, error: "already" }, { status: 409 });
+      }
+      if (ip !== "unknown" && r.ip === ip) ipCount++;
+    }
+    if (ip !== "unknown" && ipCount >= 2) {  // maximo 2 registros por IP (pon 1 si lo quieres mas duro)
+      return NextResponse.json({ ok: false, error: "already" }, { status: 409 });
+    }
+
+    let key: { id: string; code: string; note: string | null; prize_label?: string | null; prize_sub?: string | null } | null = null;
     for (let i = 0; i < 5 && !key; i++) {
       const { data: free } = await sb
-        .from("reward_keys").select("id, code, note, uses, max_uses")
+        .from("reward_keys").select("id, code, note, uses, max_uses, prize_label, prize_sub")
         .like("note", "BATCH-%").filter("uses", "lt", 1).limit(50);
       if (!free || free.length === 0) break;
       const pick = free[Math.floor(Math.random() * free.length)];
       const { data: claimed } = await sb
         .from("reward_keys").update({ uses: (pick.uses || 0) + 1 })
         .eq("id", pick.id).eq("uses", pick.uses || 0)
-        .select("id, code, note").maybeSingle();
+        .select("id, code, note, prize_label, prize_sub").maybeSingle();
       if (claimed) key = claimed;
     }
     if (!key) return NextResponse.json({ ok: false, error: "no_keys" }, { status: 409 });
@@ -85,7 +117,7 @@ export async function POST(req: Request) {
     const { data: row, error: insErr } = await sb
       .from("waitlist_signups")
       .insert({ name: `${first} ${last}`, first_name: first, last_name: last, email, lang,
-                key_id: key.id, code: key.code, prize_note: key.note, ip, user_agent: ua })
+                key_id: key.id, code: key.code, prize_note: key.prize_sub || key.prize_label || key.note, ip, user_agent: ua })
       .select("id").single();
     if (insErr) {
       await sb.from("reward_keys").update({ uses: 0 }).eq("id", key.id);
